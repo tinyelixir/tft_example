@@ -34,6 +34,8 @@ defmodule TftExample.MixProject do
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.8.5"},
       {:toolshed, "~> 0.2.26"},
+      {:scenic, "~> 0.11"},
+      {:scenic_driver_fb_tft, "~> 0.11", github: "tinyelixir/scenic_driver_fb_tft", branch: "0.11"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
@@ -44,16 +46,8 @@ defmodule TftExample.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
-      {:nerves_system_rpi, "~> 1.19", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.19", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.19", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.19", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.19", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.19", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.14", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.10", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.19", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2}
+      {:nerves_system_rpi3_tft, "~>1.22", github: "tinyelixir/nerves_system_rpi3_tft", branch: "1.22.0", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a_tft, "~>1.22", github: "tinyelixir/nerves_system_rpi3a_tft", branch: "1.22.0", runtime: false, targets: :rpi3a}
     ]
   end
 

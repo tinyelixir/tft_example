@@ -6,6 +6,25 @@ import Config
 
 config :logger, backends: [RingLogger]
 
+# Configure the main viewport for the Scenic application
+config :tft_example, :viewport,
+  name: :main_viewport,
+  size: {800, 480},
+  default_scene: TftExample.Basic,
+  drivers: [
+    %{
+      module: ScenicDriverFBTFT,
+      # position: [scaled: true, centered: true, orientation: :normal],
+    },
+    # %{
+    #   module: Scenic.Driver.Nerves.Touch,
+    #   opts: [
+    #     device: "FT5406 memory based driver",
+    #     calibration: {{1, 0, 0}, {1, 0, 0}}
+    #   ]
+    # }
+  ]
+
 # Use shoehorn to start the main application. See the shoehorn
 # library documentation for more control in ordering how OTP
 # applications are started and handling failures.

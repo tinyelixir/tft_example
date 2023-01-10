@@ -7,18 +7,19 @@ defmodule TftExample.Application do
 
   @impl true
   def start(_type, _args) do
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: TftExample.Supervisor]
+    # load the viewport configuration from config
+    main_viewport = Application.get_env(:tft_example, :viewport)
 
     children =
       [
+        {Scenic, [main_viewport]},
+        TftExample.Basic
         # Children for all targets
         # Starts a worker by calling: TftExample.Worker.start_link(arg)
         # {TftExample.Worker, arg},
       ] ++ children(target())
 
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 
   # List all child processes to be supervised
