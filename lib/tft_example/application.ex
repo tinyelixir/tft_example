@@ -13,7 +13,7 @@ defmodule TftExample.Application do
     children =
       [
         {Scenic, [main_viewport]},
-        TftExample.Basic
+        TftExample.PubSub.Supervisor
         # Children for all targets
         # Starts a worker by calling: TftExample.Worker.start_link(arg)
         # {TftExample.Worker, arg},

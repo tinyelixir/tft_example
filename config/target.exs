@@ -9,13 +9,16 @@ config :logger, backends: [RingLogger]
 # Configure the main viewport for the Scenic application
 config :tft_example, :viewport,
   name: :main_viewport,
-  size: {800, 480},
-  default_scene: TftExample.Basic,
+  size: {480, 320},
+  theme: :dark,
+  default_scene: TftExample.Scene.Home,
   drivers: [
-    %{
-      module: ScenicDriverFBTFT,
-      # position: [scaled: true, centered: true, orientation: :normal],
-    },
+    [
+      module: Scenic.Driver.Local
+    ],
+    [
+      module: ScenicDriverFBTFT
+    ]
     # %{
     #   module: Scenic.Driver.Nerves.Touch,
     #   opts: [

@@ -35,11 +35,12 @@ defmodule TftExample.MixProject do
       {:ring_logger, "~> 0.8.5"},
       {:toolshed, "~> 0.2.26"},
       {:scenic, "~> 0.11"},
-      {:scenic_driver_fb_tft, "~> 0.11", github: "tinyelixir/scenic_driver_fb_tft", branch: "0.11"},
+      {:scenic_driver_local, "~> 0.11"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:scenic_driver_fb_tft, "~> 0.11", github: "tinyelixir/scenic_driver_fb_tft", branch: "0.11", targets: @all_targets},
 
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version
